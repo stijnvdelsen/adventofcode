@@ -1,5 +1,5 @@
 def main():
-	f = open("text.txt", "r")
+	f = open("input.txt", "r")
 	i = f.read()
 	iParsed = i.split("\n")
 
