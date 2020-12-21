@@ -12,19 +12,21 @@ def main():
 	for passPolicy in iParsed:
 		matchSplit = re.findall(regexSplit, passPolicy)[0]
 
-		minPolicy = matchSplit[0]
-		maxPolicy = matchSplit[1]
+		minPolicy = int(matchSplit[0]) - 1
+		maxPolicy = int(matchSplit[1]) - 1
 		letterPolicy = matchSplit[2]
 
 		password = matchSplit[3]
 
 		letterCntr = 0
 
-		for letter in password:
-			if letter == letterPolicy:
-				letterCntr += 1
+		if password[minPolicy] == letterPolicy:
+			letterCntr += 1
 
-		if int(minPolicy) <= letterCntr <= int(maxPolicy):
+		if password[maxPolicy] == letterPolicy:
+			letterCntr += 1
+
+		if letterCntr == 1:
 			validCntr += 1
 
 	print(validCntr)
