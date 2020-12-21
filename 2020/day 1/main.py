@@ -7,11 +7,11 @@ def main():
 
 	for n in iParsed:
 		for n2 in iParsed:
+			for n3 in iParsed:
+				sumi = int(n) + int(n2) + int(n3)
 
-			sumi = int(n) + int(n2)
-
-			if (sumi == 2020):
-				outcome = int(n) * int(n2)
+				if (sumi == 2020):
+					outcome = int(n) * int(n2) * int(n3)
 
 	print(outcome)
 
