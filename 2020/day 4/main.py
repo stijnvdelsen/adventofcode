@@ -28,10 +28,14 @@ def main():
 			field = field.split(":")[0]
 
 			if field in reqFields:
-				regex = reqFields[field]
+				regex = "^" + reqFields[field] + "$"
 
 				if re.match(regex, value):
+					#print(field + ":" + value)
+
 					del reqFields[field]
+				# else:
+				# 	print("MISMATCH: " + field + ":" + value)
 
 		if len(reqFields) <= 0:
 			valid += 1
