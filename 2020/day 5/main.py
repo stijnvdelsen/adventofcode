@@ -48,23 +48,20 @@ def main():
 	i = f.read()
 	boardingPasses = i.split("\n")
 
-	highestValue = 0
-
-	for boardingPass in boardingPasses:
+	def convertPassToId(bPass):
 		newBoardingPass = ""
 
-		for letter in boardingPass:
+		for letter in bPass:
 			if letter == "F" or letter == "L":
 				newBoardingPass += "0"
 			else:
 				newBoardingPass += "1"
 
-		value = int("0b" + newBoardingPass.lstrip("0"), 2)
+		return int("0b" + newBoardingPass.lstrip("0"), 2)
 
-		if value > highestValue:
-			highestValue = value
+	newList = list(map(convertPassToId, boardingPasses))
 
-	print(highestValue)
+	print(max(newList))
 
 if __name__ == "__main__":	
     main()
