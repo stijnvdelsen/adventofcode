@@ -1,4 +1,4 @@
-def explanation():
+def explenation():
 	f = open("input.txt", "r")
 	i = f.read()
 	boardingPasses = i.split("\n")
