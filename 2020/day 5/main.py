@@ -49,19 +49,10 @@ def main():
 	boardingPasses = i.split("\n")
 
 	def convertPassToId(bPass):
-		newBoardingPass = ""
+		newBoardingPass = ''.join(list(map(lambda l: "0" if l == "F" or l == "L" else "1", bPass)))
+		return int("0b" + newBoardingPass.lstrip("0"), 2)	
 
-		for letter in bPass:
-			if letter == "F" or letter == "L":
-				newBoardingPass += "0"
-			else:
-				newBoardingPass += "1"
-
-		return int("0b" + newBoardingPass.lstrip("0"), 2)
-
-	newList = list(map(convertPassToId, boardingPasses))
-
-	print(max(newList))
+	print(max(list(map(convertPassToId, boardingPasses))))
 
 if __name__ == "__main__":	
     main()
