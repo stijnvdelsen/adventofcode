@@ -46,13 +46,9 @@ def explenation():
 def main():
 	f = open("input.txt", "r")
 	i = f.read()
-	boardingPasses = i.split("\n")
+	b = i.split("\n")
 
-	def convertPassToId(bPass):
-		newBoardingPass = ''.join(list(map(lambda l: "0" if l == "F" or l == "L" else "1", bPass)))
-		return int("0b" + newBoardingPass.lstrip("0"), 2)	
-
-	print(max(list(map(convertPassToId, boardingPasses))))
+	print(max(list(map(lambda p: int("0b" + ''.join(list(map(lambda l: "0" if l == "F" or l == "L" else "1", p))).lstrip("0"), 2), b))))
 
 if __name__ == "__main__":	
     main()
