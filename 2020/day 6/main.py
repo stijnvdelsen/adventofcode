@@ -27,12 +27,21 @@ def main():
 
 	for group in questions:
 		persons = group.split('\n')
-		answers = group
+		answers = list(set(group.replace('\n', '')))
 
-		for letter in group:
-			for person in persons:
-				if letter not in person:
-					answers.strip(letter)
+		# print(answers)
+		# print(group)
+
+		for person in persons:
+			for letter in group.replace('\n', ''):
+				if letter not in person and letter in answers:
+					answers.remove(letter)
+
+		# for letter in group.replace('\n', ''):
+		# 	for person in persons:
+		# 		if letter not in person:
+		# 			print(letter)
+		# 			answers.remove(letter)
 
 		cntr += len(answers)
 
@@ -40,3 +49,6 @@ def main():
 
 if __name__ == "__main__":	
     main()
+
+
+ # Alle letters die persoon bevat
